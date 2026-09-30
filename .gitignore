@@ -1,0 +1,39 @@
+# ==============================
+# Node / React
+# ==============================
+client/node_modules/
+client/dist/
+client/.vite/
+
+# Environment files
+client/.env
+client/.env.*
+!client/.env.example
+
+# ==============================
+# Java / Spring Boot / Maven
+# ==============================
+vapepos-backend/target/
+
+# Environment files
+vapepos-backend/.env
+vapepos-backend/.env.*
+!vapepos-backend/.env.example
+
+# ==============================
+# IDE
+# ==============================
+.vscode/
+.idea/
+*.iml
+
+# ==============================
+# OS
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Logs
+# ==============================
+*.log
