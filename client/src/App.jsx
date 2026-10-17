@@ -5,6 +5,10 @@ import Login from "./pages/Login";
 import AdminDashboard from "./pages/AdminDashboard";
 import CashierDashboard from "./pages/CashierDashboard";
 import SelectBranch from "./pages/SelectBranch";
+import POS from "./pages/POS";
+import Inventory from "./pages/Inventory";
+import SalesHistory from "./pages/SalesHistory";
+import AdminSales from "./pages/AdminSales";
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();
@@ -56,6 +60,14 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+         path="/cashier/pos"
+         element={
+         <RoleRoute role="CASHIER">
+         <POS />
+         </RoleRoute>
+      }
+/>
 
         {/* Cashier dashboard */}
         <Route
@@ -68,6 +80,39 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/cashier/inventory"
+            element={
+              <ProtectedRoute>
+                <RoleRoute role="CASHIER">
+                  <Inventory />
+              </RoleRoute>
+        </ProtectedRoute>
+        }
+      />
+
+   <Route
+      path="/cashier/sales"
+      element={
+      <ProtectedRoute>
+      <RoleRoute role="CASHIER">
+        <SalesHistory />
+      </RoleRoute>
+    </ProtectedRoute>
+    }
+    />
+
+    <Route
+  path="/admin/sales"
+  element={
+    <ProtectedRoute>
+      <RoleRoute role="ADMIN">
+        <AdminSales />
+      </RoleRoute>
+    </ProtectedRoute>
+  }
+/>
 
         {/* Default */}
         <Route path="/" element={<Navigate to="/login" replace />} />
