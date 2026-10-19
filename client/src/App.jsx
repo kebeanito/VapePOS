@@ -9,6 +9,7 @@ import POS from "./pages/POS";
 import Inventory from "./pages/Inventory";
 import SalesHistory from "./pages/SalesHistory";
 import AdminSales from "./pages/AdminSales";
+import AdminLayout from "./components/AdminLayout";
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();
@@ -39,15 +40,17 @@ function App() {
 
         {/* Admin */}
         <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <RoleRoute role="ADMIN">
-                <AdminDashboard />
-              </RoleRoute>
-            </ProtectedRoute>
-          }
-        />
+            path="/admin"
+              element={
+                  <ProtectedRoute>
+                    <RoleRoute role="ADMIN">
+                    <AdminLayout>
+              <AdminDashboard />
+           </AdminLayout>
+        </RoleRoute>
+    </ProtectedRoute>
+      }
+    />
 
         {/* Cashier branch selection */}
         <Route
@@ -108,7 +111,9 @@ function App() {
   element={
     <ProtectedRoute>
       <RoleRoute role="ADMIN">
-        <AdminSales />
+        <AdminLayout>
+          <AdminSales />
+        </AdminLayout>
       </RoleRoute>
     </ProtectedRoute>
   }

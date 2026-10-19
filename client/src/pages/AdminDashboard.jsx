@@ -138,36 +138,8 @@ function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
-      {/* Header */}
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950 text-white">
-              <ShoppingBag size={23} />
-            </div>
 
-            <div>
-              <h1 className="text-xl font-bold tracking-tight">
-                VapePOS
-              </h1>
-              <p className="text-xs text-slate-500">
-                Administration
-              </p>
-            </div>
-          </div>
-
-          <button
-            onClick={() => navigate("/admin/sales")}
-            className="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
-          >
-            <BarChart3 size={17} />
-            Manage Sales
-            <ArrowRight size={16} />
-          </button>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-[1600px] space-y-7 p-4 sm:p-6 lg:p-8">
+      <main className="mx-auto w-full max-w-[1600px] space-y-6 overflow-x-hidden p-3 sm:space-y-7 sm:p-6 lg:p-8">
         {/* Page title */}
         <section className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <div>
@@ -240,7 +212,7 @@ function AdminDashboard() {
             <p className="mt-5 text-sm text-slate-500">
               Today's Sales
             </p>
-            <p className="mt-1 text-2xl font-bold tracking-tight">
+            <p className="mt-1 break-words text-xl font-bold tracking-tight sm:text-2xl">
               {loading ? "..." : formatCurrency(totalToday)}
             </p>
             <p className="mt-2 text-xs text-slate-500">
@@ -256,7 +228,7 @@ function AdminDashboard() {
             <p className="mt-5 text-sm text-slate-500">
               Transactions Today
             </p>
-            <p className="mt-1 text-2xl font-bold tracking-tight">
+            <p className="mt-1 break-words text-xl font-bold tracking-tight sm:text-2xl">
               {loading ? "..." : todaySales.length}
             </p>
             <p className="mt-2 text-xs text-slate-500">
@@ -272,7 +244,7 @@ function AdminDashboard() {
             <p className="mt-5 text-sm text-slate-500">
               Average Transaction
             </p>
-            <p className="mt-1 text-2xl font-bold tracking-tight">
+            <p className="mt-1 break-words text-xl font-bold tracking-tight sm:text-2xl">
               {loading ? "..." : formatCurrency(averageTransaction)}
             </p>
             <p className="mt-2 text-xs text-slate-500">
@@ -288,7 +260,7 @@ function AdminDashboard() {
             <p className="mt-5 text-sm text-slate-500">
               All-Time Sales
             </p>
-            <p className="mt-1 text-2xl font-bold tracking-tight">
+            <p className="mt-1 break-words text-xl font-bold tracking-tight sm:text-2xl">
               {loading ? "..." : formatCurrency(allTimeSales)}
             </p>
             <p className="mt-2 text-xs text-slate-500">
